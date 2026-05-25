@@ -202,7 +202,6 @@ export default function Projects() {
                     <div className='flex flex-col justify-center gap-10'>
                         <div className='flex flex-col justify-center gap-1'>
                             <h2 className="text-4xl font-bold text-center text-primary">Audiovisuales</h2>
-                            <p className="text-lg text-gray-300 text-center text-secundary">Reels para marcas de cerveza</p>
                         </div>
                         <div className="w-full flex justify-center items-center relative mt-0">
 
