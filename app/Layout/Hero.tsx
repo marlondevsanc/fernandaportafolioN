@@ -32,7 +32,7 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    Fernanda Siero
+                    Fernanda Siero Flores
                 </motion.h1>
                 <motion.p
                     className="mt-4 text-3xl text-gray-300 text-secundary"
