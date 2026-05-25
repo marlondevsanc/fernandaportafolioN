@@ -29,7 +29,7 @@ const ContactSection = () => {
           y destacar en el mundo digital, contactáme. Estoy emocionada por escuchar tus ideas y colaborar con vos
         </motion.p>
         <div className="flex justify-center md:justify-start space-x-6">
-          <motion.a
+          {/*<motion.a
             href="https://www.linkedin.com/in/fernanda-siero-bab614248/"
             target="_blank"
             rel="noopener noreferrer"
@@ -37,7 +37,7 @@ const ContactSection = () => {
             whileHover={{ scale: 1.2 }}
           >
             <FaLinkedin />
-          </motion.a>
+          </motion.a> */}
           <motion.a
             href="https://wa.link/ei3hmp"
             target="_blank"
