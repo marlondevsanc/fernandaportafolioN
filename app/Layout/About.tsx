@@ -28,10 +28,9 @@ export default function About() {
                     transition={{ duration: 0.8 }}
                 >
 
-                    <h2 className="text-4xl font-bold mb-4 text-primary">Sobre mi</h2>
+                    <h2 className="text-4xl font-bold mb-4 text-primary">Sobre mí</h2>
                     <p className="text-lg text-gray-700 leading-relaxed">
-                        Soy apacionada del contenido y estrategia digital. Con más de 3 años de experiencia, he ayudado a marcas a contar su historia de manera efectiva.
-                        Este portafolio representa solo una muestra de lo que he logrado a lo largo de mi carrera profesional. ¡Estoy lista para dar vida a tus ideas!
+                       Experiencia en coordinación estratégica, organización de procesos y producción de contenido, con enfoque en desarrollar soluciones eficientes, creativas y orientadas a resultados. Combino liderazgo, comunicación y visión estratégica para aportar valor en entornos dinámicos y colaborativos.
                     </p>
                     <a href="https://wa.link/ei3hmp">
                         <button className="px-6 py-3 mt-4 text-lg font-semibold bg-primary text-white rounded-full hover:bg-secundary transition-all shadow-sm">

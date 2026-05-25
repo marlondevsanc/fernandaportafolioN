@@ -1,15 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import CardProjects from '../Components/Cards/CardProjects';
-import { FcIdea, FcTimeline, FcCamcorderPro } from "react-icons/fc";
 import { Swiper, SwiperSlide, } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import "swiper/css/pagination";
 import CardReelsVideo from '../Components/Cards/CardReelsVideo';
+import CardReels from '../Components/Cards/CardReels';
 
 interface IProject {
     title: string;
@@ -17,12 +16,6 @@ interface IProject {
     image: string;
     link: string;
 }
-
-const categories = [
-    { id: 'castillo', label: 'Castillo Publicidad', icon: <FcIdea /> },
-    { id: 'ogilvy', label: 'Ogilvy Nicaragua', icon: <FcTimeline /> },
-    { id: 'puntada', label: 'Puntada Gráfica', icon: <FcCamcorderPro /> }
-];
 
 const projects: Record<string, IProject[]> = {
     castillo: [
@@ -94,11 +87,24 @@ const projects: Record<string, IProject[]> = {
         { title: 'Puntada Gráfica', description: 'Creatividad', image: '/images/pgpost2.jpg', link: 'https://www.facebook.com/puntadagrafica/photos/2214585242024717' },
         { title: 'Puntada Gráfica', description: 'Creatividad', image: '/images/pgpost3.jpg', link: 'https://www.facebook.com/puntadagrafica/photos/2211591285657446' },
         { title: 'Puntada Gráfica', description: 'Creatividad', image: '/images/pgpost4.jpg', link: 'https://www.facebook.com/puntadagrafica/photos/2218116055004969' },
-        { title: 'Puntada Gráfica', description: 'Creatividad', image: '/images/pgpost5.jpg', link: 'https://www.facebook.com/puntadagrafica/photos/2262703437212897' },
+        //{ title: 'Puntada Gráfica', description: 'Creatividad', image: '/images/pgpost5.jpg', link: 'https://www.facebook.com/puntadagrafica/photos/2262703437212897' },
         { title: 'Puntada Gráfica', description: 'Creatividad', image: '/images/pgpost6.jpg', link: 'https://www.facebook.com/puntadagrafica/photos/2243618632454711' },
 
     ]
 };
+
+const sinfoniadigital: IProject[] = [
+    { title: 'Clínica Soludental', description: 'Creacion de contenido', image: '/images/BIT -Soludental- Mayo 2026 (8).jpeg', link: '#' },
+   { title: 'Clínica Soludental', description: 'Creacion de contenido', image: '/images/Bitácora Soludental- NOV.jpeg', link: '#' },
+    { title: 'Santuario Natural', description: 'Creacion de contenido', image: '/images/Bitácora SN - Nov (1).jpeg', link: '#' },
+    { title: 'Santuario Natural', description: 'Creacion de contenido', image: '/images/Bitácora SN - Nov.jpeg', link: '#' },
+    { title: 'Dra. María Reyes', description: 'Creacion de contenido', image: '/images/Post 5.jpg.jpeg', link: '#' },
+    { title: 'Dra. María Reyes', description: 'Creacion de contenido', image: '/images/Post 6.jpg.jpeg', link: '#' },
+    { title: 'Dra. María Reyes', description: 'Creacion de contenido', image: '/images/Post 9.jpg.jpeg', link: '#' },
+    { title: 'Restaurante Fireplace', description: 'Creacion de contenido', image: '/images/Post Fireplace- Agosto (19).jpeg', link: '#' },
+    { title: 'Restaurante Fireplace', description: 'Creacion de contenido', image: '/images/Post Fireplace- Agosto (20).jpeg', link: '#' },
+    { title: 'Burger King', description: 'Creacion de contenido', image: '/images/Post1-Burger King.jpg', link: '#' },
+];
 
 const reelsData = [
     {
@@ -121,31 +127,37 @@ const reelsData = [
     },
 ];
 
+const instagramReels = [
+    { id: 10, idReels: "ClTucSBjmzq" },
+    { id: 11, idReels: "Cnpq7FghA2x" },
+    { id: 12, idReels: "CpTT7qgDISh" },
+];
+
 
 export default function Projects() {
-    const [activeTab, setActiveTab] = useState('castillo');
+    const coronaProjects = projects.castillo.filter((project) => project.title === 'Cerveza Corona');
+    const aceiteraProjects = projects.castillo.filter((project) => project.title === 'Aceitera El Real');
+    const remainingCastilloProjects = projects.castillo.filter(
+        (project) => project.title !== 'Cerveza Corona' && project.title !== 'Aceitera El Real'
+    );
+
+    const contentProjects = [
+        ...coronaProjects,
+        ...aceiteraProjects,
+        ...remainingCastilloProjects,
+        ...projects.ogilvy,
+        ...sinfoniadigital,
+        ...projects.puntada,
+    ];
 
     return (
         <section id='proyectos' className="w-full py-20 bg-foreground shadow-md rounded-md text-black">
             <div className="container mx-auto max-w-6xl px-6">
-                <h2 className="text-4xl font-bold text-center mb-8 text-primary">Contenido estático</h2>
-                <div className="flex md:flex-row sm:flex-col justify-center sm:gap-3 border-b-2 border-gray-300 mb-6 ">
-                    {categories.map(({ id, label, icon }) => (
-                        <motion.button
-                            key={id}
-                            onClick={() => setActiveTab(id)}
-                            className={`flex items-center gap-2 px-4 py-2 text-lg sm:text-md font-medium transition-all ${activeTab === id ? 'text-blue-600 border-b-4 border-blue-600' : 'text-gray-600'}`}
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            {icon} {label}
-                        </motion.button>
-                    ))}
-                </div>
+                <h2 className="text-4xl font-bold text-center mb-8 text-primary">Creación de contenido</h2>
 
                 <div className="flex flex-col justify-center gap-20">
                     <motion.div
                         className="p-5"
-                        key={activeTab}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
@@ -164,7 +176,7 @@ export default function Projects() {
                                 }}
                                 modules={[Navigation]}
                             >
-                                {(projects[activeTab] || []).map((project, index) => (
+                                {contentProjects.map((project, index) => (
                                     <SwiperSlide key={index}>
                                         <CardProjects
                                             title={project.title}
@@ -208,8 +220,13 @@ export default function Projects() {
                                 modules={[Navigation]}
                             >
                                 {reelsData.map((reel, index) => (
-                                    <SwiperSlide key={index} className="flex justify-center items-center">
+                                    <SwiperSlide key={`video-${index}`} className="flex justify-center items-center">
                                         <CardReelsVideo {...reel} />
+                                    </SwiperSlide>
+                                ))}
+                                {instagramReels.map((reel) => (
+                                    <SwiperSlide key={`reel-${reel.id}`} className="flex justify-center items-center">
+                                        <CardReels reelId={reel.idReels} />
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
